@@ -1,0 +1,31 @@
+
+type Query {
+
+    lofGiftCardInfo (
+        code: String! @doc(description: "Query by code.")
+    ) : GiftCardInfo @resolver( class: "Lof\\GiftCardGraphQl\\Model\\Resolver\\GiftCardInfo") @doc(description: "Query gift card info by id.")
+
+}
+
+type Mutation {
+    lofGiftCardRedeem (
+        code: String! @doc(description: "Query by code.")
+        customer_id: String! @doc(description: "Redeem to customer.")
+    ) : Res @resolver( class: "Lof\\GiftCardGraphQl\\Model\\Resolver\\GiftCardRedeem") @doc(description: "Redeem gift card to customer.")
+
+    lofAddGiftCardToQuote (
+        cart_id: String! @doc(description: "Card Id")
+        code: String! @doc(description: "Query by code.")
+    ) : Res @resolver( class: "Lof\\GiftCardGraphQl\\Model\\Resolver\\AddGiftCardToQuote") @doc(description: "Add gift card to quote.")
+}
+
+type GiftCardInfo {
+
+    code  : String  @doc(description: "Query by code.")
+    balance  : Money  @doc(description: "Query by balance.")
+}
+
+type Res {
+    code: Int
+    message: String
+}
