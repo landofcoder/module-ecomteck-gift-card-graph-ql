@@ -10,6 +10,7 @@ namespace Lof\GiftCardGraphQl\Model\Resolver\DataProvider;
 
 use Ecomteck\GiftCardAccount\Api\GiftCardAccountManagementInterface;
 use Ecomteck\GiftCardAccount\Model\GiftcardaccountFactory;
+use Ecomteck\CustomerBalance\Api\BalanceManagementInterface;
 use Magento\Framework\Exception\LocalizedException;
 
 /**
@@ -27,19 +28,26 @@ class GiftCardInfo
      * @var GiftcardaccountFactory
      */
     private $giftCartAccountFactory;
+    /**
+     * @var BalanceManagementInterface
+     */
+    private $balanceManagement;
 
     /**
      * GiftCardInfo constructor.
      * @param GiftCardAccountManagementInterface $giftCardAccountManagement
      * @param GiftcardaccountFactory $giftCardAccountFactory
+     * @param BalanceManagementInterface $balanceManagement
      */
     public function __construct(
         GiftCardAccountManagementInterface $giftCardAccountManagement,
-        GiftcardaccountFactory $giftCardAccountFactory
+        GiftcardaccountFactory $giftCardAccountFactory,
+        BalanceManagementInterface $balanceManagement
     )
     {
         $this->giftCartAccountManagement = $giftCardAccountManagement;
         $this->giftCartAccountFactory = $giftCardAccountFactory;
+        $this->balanceManagement = $balanceManagement;
 
     }
 
@@ -78,6 +86,26 @@ class GiftCardInfo
             "code" => 0,
             "message" => __("Gift cart %1 was added.", $code)
         ];
+    }
+
+    /**
+     * @param $cartId
+     * @return array
+     */
+    public function ApplyCustomerBalanceToQuote($cartId) {
+        $result = $this->balanceManagement->apply($cartId);
+        if ($result) {
+            $res = [
+                'code' => 0,
+                'message' => __("Use customer balance successfully.")
+            ];
+        } else {
+            $res = [
+                'code' => 1,
+                'message' => __("Can not use customer balance to this order.")
+            ];
+        }
+        return $res;
     }
 }
 
