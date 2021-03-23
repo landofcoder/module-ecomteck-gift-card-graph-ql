@@ -8,6 +8,7 @@ type Query {
 }
 
 type Mutation {
+
     lofGiftCardRedeem (
         code: String! @doc(description: "Query by code.")
         customer_id: String! @doc(description: "Redeem to customer.")
@@ -17,6 +18,10 @@ type Mutation {
         cart_id: String! @doc(description: "Card Id")
         code: String! @doc(description: "Query by code.")
     ) : Res @resolver( class: "Lof\\GiftCardGraphQl\\Model\\Resolver\\AddGiftCardToQuote") @doc(description: "Add gift card to quote.")
+
+    lofApplyCustomerBalanceToCart (
+        cart_id: String! @doc(description: "Card Id")
+    ) : Res @resolver( class: "Lof\\GiftCardGraphQl\\Model\\Resolver\\ApplyCustomerBalanceToQuote") @doc(description: "Apply customer balance to quote.")
 }
 
 type GiftCardInfo {
