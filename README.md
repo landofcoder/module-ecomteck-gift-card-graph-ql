@@ -1,12 +1,14 @@
-# Mage2 Module Lof GiftCardGraphQl
+# Magento 2 Module Lof GiftCardGraphQl
 
-    ``lof/module-giftcardgraphql``
+    ``landofcoder/module-gift-card-graph-ql``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
  - [Configuration](#markdown-header-configuration)
  - [Specifications](#markdown-header-specifications)
  - [Attributes](#markdown-header-attributes)
+
+NOTE: This module require setup [Magento 2 Giftcard extension](https://landofcoder.com/magento-2-gift-card.html)
 
 
 ## Main Functionalities
