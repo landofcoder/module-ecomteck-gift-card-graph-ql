@@ -1,12 +1,15 @@
 {
-    "name": "lof/module-giftcardgraphql",
-    "description": "Gift Card GraphQl",
+    "name": "landofcoder/module-giftcardgraphql",
+    "description": "Gift Card GraphQl for module Magento 2 GiftCard extension",
     "type": "magento2-module",
     "license": "GPL-3.0",
+    "version": "1.0.0",
     "authors": [
         {
-            "name": "Mage2Gen",
-            "email": "info@mage2gen.com"
+            "name": "Landofcoder",
+            "email": "info@landofcoder.com",
+            "homepage": "https://landofcoder.com",
+            "role": "Magento 2 Extensions & Solution provider"
         }
     ],
     "minimum-stability": "dev",
