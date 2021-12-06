@@ -1,5 +1,5 @@
 {
-    "name": "landofcoder/module-giftcardgraphql",
+    "name": "landofcoder/module-gift-card-graph-ql",
     "description": "Gift Card GraphQl for module Magento 2 GiftCard extension",
     "type": "magento2-module",
     "license": "GPL-3.0",
